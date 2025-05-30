@@ -1,0 +1,141 @@
+{
+  "name": "vulnerable/composer-package",
+  "description": "A package with vulnerable and deprecated dependencies for testing purposes",
+  "type": "project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Test User",
+      "email": "test@example.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "prefer-stable": true,
+  "require": {
+    "php": ">=5.3.0 <7.4.0",
+    "laravel/framework": "5.0.*",
+    "symfony/symfony": "2.3.0",
+    "monolog/monolog": "~1.11",
+    "guzzlehttp/guzzle": "^4.0",
+    "phpmailer/phpmailer": "5.2.16",
+    "typo3/cms": "6.2.0-6.2.31",
+    "twig/twig": "<1.20",
+    "doctrine/orm": ">=2.0,<2.5",
+    "zendframework/zendframework": "1.12.0",
+    "yiisoft/yii": "1.1.14",
+    "aws/aws-sdk-php": "2.*",
+    "swiftmailer/swiftmailer": "v5.0.0",
+    "league/flysystem": "dev-master#a99f94e",
+    "nikic/php-parser": "@dev",
+    "phpunit/phpunit": "@stable",
+    "symfony/http-foundation": "v2.5.0-BETA1",
+    "illuminate/database": "*",
+    "psr/log": "!=1.0.1",
+    "symfony/console": "2.0.4 || 2.1.2",
+    "cakephp/cakephp": "2.4.0-2.4.9"
+  },
+  "require-dev": {
+    "phpunit/php-code-coverage": "~2.0",
+    "mockery/mockery": "0.9.0",
+    "phpmd/phpmd": "1.5.*",
+    "squizlabs/php_codesniffer": "1.5.6",
+    "sebastian/phpcpd": "dev-master as 2.0.0",
+    "phpspec/prophecy": "<=1.7.0",
+    "friendsofphp/php-cs-fixer": "@alpha",
+    "behat/behat": "v2.5.0-BETA4",
+    "phpstan/phpstan": "0.1.0"
+  },
+  "suggest": {
+    "ext-mcrypt": "Required for encryption",
+    "ext-mysql": "For MySQL database connections"
+  },
+  "conflict": {
+    "symfony/dependency-injection": ">=3.0",
+    "doctrine/dbal": ">=2.6.0"
+  },
+  "replace": {
+    "paragonie/random_compat": "1.0.0"
+  },
+  "provide": {
+    "psr/log-implementation": "1.0.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "VulnerableApp\\": "src/"
+    },
+    "psr-0": {
+      "OldNamespace": "src/"
+    },
+    "classmap": [
+      "database",
+      "legacy"
+    ],
+    "files": [
+      "src/helpers.php"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/example/package"
+    },
+    {
+      "type": "composer",
+      "url": "https://packagist.org"
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "vendor/package",
+        "version": "1.0.0",
+        "dist": {
+          "url": "https://example.com/vendor/package-1.0.0.zip",
+          "type": "zip"
+        }
+      }
+    }
+  ],
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true,
+    "platform": {
+      "php": "5.6.0",
+      "ext-gd": "1.0.0"
+    },
+    "allow-plugins": {
+      "composer/package-versions-deprecated": true
+    }
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+    ],
+    "post-update-cmd": [
+      "php artisan clear-compiled"
+    ],
+    "post-create-project-cmd": [
+      "php artisan key:generate"
+    ],
+    "test": [
+      "phpunit"
+    ]
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0.x-dev"
+    },
+    "laravel": {
+      "dont-discover": [
+        "barryvdh/laravel-debugbar"
+      ]
+    },
+    "asset-installer-paths": {
+      "bower-asset-library": "vendor/bower"
+    }
+  }
+}
