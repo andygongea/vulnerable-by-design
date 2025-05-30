@@ -1,0 +1,85 @@
+{
+  "name": "vulnerable-npm-package",
+  "version": "0.1.0",
+  "description": "A package with vulnerable and deprecated dependencies for testing purposes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "vulnerable",
+    "deprecated",
+    "testing"
+  ],
+  "author": "Test User",
+  "license": "MIT",
+  "dependencies": {
+    "express": "3.0.0",
+    "request": "2.88.0",
+    "mongoose": "~4.13.19",
+    "jquery": "1.12.4",
+    "lodash": "^3.10.1",
+    "moment": "2.8.4",
+    "node-uuid": "1.4.0",
+    "underscore": "1.8.3",
+    "chalk": "*",
+    "debug": "1.x",
+    "commander": "=2.3.0",
+    "async": ">1.5.0 <2.0.0",
+    "bluebird": "<3.0.0",
+    "axios": "github:axios/axios#v0.18.0",
+    "left-pad": "https://registry.npmjs.org/left-pad/-/left-pad-1.3.0.tgz",
+    "local-module": "file:../local-module",
+    "winston": "latest",
+    "xml2js": "0.x"
+  },
+  "devDependencies": {
+    "grunt": "0.4.5",
+    "bower": "1.8.2",
+    "gulp": "3.9.1",
+    "mocha": ">=2.2.5 <5.0.0",
+    "eslint": "3.0.0",
+    "karma": "1.7.1",
+    "webpack": "1.15.0",
+    "jasmine": "2.0.1",
+    "istanbul": "git://github.com/gotwarlost/istanbul.git#v0.4.5",
+    "jshint": "<=2.9.1",
+    "chai": ">4.0.0",
+    "sinon": "12.0.0"
+  },
+  "peerDependencies": {
+    "react": "15.0.0 - 15.6.2",
+    "react-dom": "15.0.0 - 15.6.2",
+    "jquery": "1.x || 2.x",
+    "babel-core": ">=6.0.0",
+    "eslint-plugin-react": "^5.0.0 || ^6.0.0"
+  },
+  "optionalDependencies": {
+    "fsevents": "1.2.4",
+    "node-sass": "4.9.0",
+    "fibers": ">=2.0.0",
+    "node-gyp": "git+https://github.com/nodejs/node-gyp.git",
+    "sharp": "0.x.x"
+  },
+  "bundledDependencies": [
+    "colors",
+    "mkdirp",
+    "minimist",
+    "rimraf"
+  ],
+  "engines": {
+    "node": "18.15.0",
+    "npm": "9.8.1"
+  },
+  "os": [
+    "darwin",
+    "linux"
+  ],
+  "cpu": [
+    "x64",
+    "ia32",
+    "arm64"
+  ],
+  "private": true
+}
