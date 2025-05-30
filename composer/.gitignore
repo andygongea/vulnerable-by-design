@@ -1,0 +1,62 @@
+# Composer
+/vendor/
+composer.lock
+composer.phar
+.phpunit.result.cache
+
+# PHP
+.php_cs.cache
+.php_cs
+.php-cs-fixer.cache
+.phpunit.cache/
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+.project
+.buildpath
+.settings/
+*.sublime-workspace
+*.sublime-project
+
+# Environment files
+.env
+.env.backup
+.env.local
+.env.*.local
+
+# Logs
+*.log
+logs/
+/log/
+
+# Cache
+/cache/
+.cache/
+
+# Build directories
+/build/
+/dist/
+
+# Temporary files
+/tmp/
+/temp/
+
+# Testing
+/coverage/
+.phpunit.result.cache
+
+# Application specific
+/public/storage
+/public/hot
+/public/uploads
+/storage/*.key
+
+# Misc
+.htaccess
+/node_modules/
+npm-debug.log
+yarn-error.log
