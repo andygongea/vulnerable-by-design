@@ -1,0 +1,8 @@
+{
+  "name": "local-module",
+  "version": "1.0.0",
+  "description": "A dummy local module for testing purposes.",
+  "main": "index.js",
+  "author": "Test User",
+  "license": "MIT"
+}
