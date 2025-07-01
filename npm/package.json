@@ -19,7 +19,7 @@
     "express": "3.0.0",
     "request": "2.88.0",
     "ejs": "0.8.8",
-    "electron": "11.0.0",
+    "electron": "28.3.2",
     "mongoose": "~4.13.19",
     "jquery": "1.12.4",
     "lodash": "^3.10.1",
