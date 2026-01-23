@@ -49,7 +49,7 @@
     "istanbul": "git://github.com/gotwarlost/istanbul.git#v0.4.5",
     "jshint": "<=2.9.1",
     "chai": ">4.0.0",
-    "sinon": "12.0.0"
+    "sinon": "21.0.1"
   },
   "peerDependencies": {
     "react": "15.0.0 - 15.6.2",
