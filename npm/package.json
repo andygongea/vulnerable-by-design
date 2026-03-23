@@ -35,7 +35,14 @@
     "left-pad": "https://registry.npmjs.org/left-pad/-/left-pad-1.3.0.tgz",
     "local-module": "file:../local-module",
     "winston": "latest",
-    "xml2js": "0.x"
+    "xml2js": "0.x",
+    "body-parser": "1",
+    "cookie-parser": "1.4",
+    "helmet": "~3",
+    "cors": "^2",
+    "string-width": "npm:string-width-cjs@4.2.3",
+    "typescript": "next",
+    "react-native": "0.72.0-rc.1"
   },
   "devDependencies": {
     "grunt": "0.4.5",
@@ -49,7 +56,8 @@
     "istanbul": "git://github.com/gotwarlost/istanbul.git#v0.4.5",
     "jshint": "<=2.9.1",
     "chai": ">4.0.0",
-    "sinon": "12.0.0"
+    "sinon": "12.0.0",
+    "coveralls": "git+ssh://git@github.com/nickmerwin/node-coveralls.git#v3.0.0"
   },
   "peerDependencies": {
     "react": "15.0.0 - 15.6.2",
