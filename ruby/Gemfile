@@ -1,0 +1,359 @@
+# frozen_string_literal: true
+
+# =============================================================================
+# Source and Ruby version declaration
+# =============================================================================
+source 'https://rubygems.org'
+
+ruby '3.2.0'
+
+# =============================================================================
+# VERSION SPECIFIER SCENARIOS
+# =============================================================================
+
+# --- Exact version pinning ---
+gem 'rails', '6.1.0'
+gem 'sinatra', '2.1.0'
+gem 'hanami', '1.3.0'
+
+# --- Pessimistic operator (patch-level): ~> x.y.z ---
+gem 'rack', '~> 2.2.0'
+gem 'puma', '~> 5.0.0'
+gem 'thin', '~> 1.7.0'
+
+# --- Pessimistic operator (minor-level): ~> x.y ---
+gem 'nokogiri', '~> 1.12'
+gem 'erubi', '~> 1.9'
+gem 'thor', '~> 1.1'
+
+# --- Greater than or equal: >= x.y ---
+gem 'bundler', '>= 2.0'
+gem 'rake', '>= 12.0'
+
+# --- Less than: < x.y ---
+gem 'json', '< 2.6'
+gem 'rexml', '< 3.2'
+
+# --- Combined constraints: >= x.y, < z.0 ---
+gem 'net-http', '>= 0.1', '< 0.4'
+gem 'uri', '>= 0.10', '< 0.13'
+
+# --- No version specified (unpinned) ---
+gem 'zeitwerk'
+gem 'concurrent-ruby'
+
+# =============================================================================
+# GROUP BLOCKS
+# =============================================================================
+
+# --- Single group: development ---
+group :development do
+  gem 'pry', '~> 0.13.0'
+  gem 'pry-rails', '~> 0.3.0'
+  gem 'byebug', '~> 11.1.0'
+  gem 'debug', '~> 1.4.0'
+  gem 'listen', '~> 3.7.0'
+  gem 'spring', '~> 4.0.0'
+  gem 'web-console', '~> 4.1.0'
+  gem 'rubocop', '~> 1.25.0'
+  gem 'standard', '~> 1.7.0'
+  gem 'rubocop-rails', '~> 2.13.0'
+  gem 'rubocop-rspec', '~> 2.8.0'
+  gem 'rubocop-performance', '~> 1.13.0'
+  gem 'brakeman', '~> 5.2.0'
+  gem 'annotate', '~> 3.2.0'
+  gem 'letter_opener', '~> 1.7.0'
+end
+
+# --- Single group: test ---
+group :test do
+  gem 'rspec', '~> 3.10.0'
+  gem 'rspec-rails', '~> 5.1.0'
+  gem 'capybara', '~> 3.36.0'
+  gem 'selenium-webdriver', '~> 4.1.0'
+  gem 'webdrivers', '~> 5.0.0'
+  gem 'factory_bot', '~> 6.2.0'
+  gem 'factory_bot_rails', '~> 6.2.0'
+  gem 'faker', '~> 2.19.0'
+  gem 'shoulda-matchers', '~> 5.1.0'
+  gem 'simplecov', '~> 0.21.0'
+  gem 'webmock', '~> 3.14.0'
+  gem 'vcr', '~> 6.0.0'
+  gem 'database_cleaner', '~> 2.0.0'
+  gem 'timecop', '~> 0.9.0'
+end
+
+# --- Multi-group: development AND test ---
+group :development, :test do
+  gem 'dotenv-rails', '~> 2.7.0'
+  gem 'rspec-core', '~> 3.10.0'
+  gem 'rspec-expectations', '~> 3.10.0'
+  gem 'rspec-mocks', '~> 3.10.0'
+  gem 'minitest', '~> 5.15.0'
+  gem 'parallel_tests', '~> 3.7.0'
+  gem 'awesome_print', '~> 1.9.0'
+end
+
+# --- Single group: production ---
+group :production do
+  gem 'lograge', '~> 0.11.0'
+  gem 'rack-attack', '~> 6.5.0'
+  gem 'rack-cors', '~> 1.1.0'
+  gem 'redis', '~> 4.5.0'
+  gem 'hiredis', '~> 0.6.0'
+  gem 'connection_pool', '~> 2.2.0'
+  gem 'bootsnap', '~> 1.9.0'
+end
+
+# =============================================================================
+# INLINE GROUP SYNTAX
+# =============================================================================
+
+# --- Inline group (symbol) ---
+gem 'better_errors', '~> 2.9.0', group: :development
+gem 'binding_of_caller', '~> 1.0.0', group: :development
+
+# --- Inline group (array) ---
+gem 'bullet', '~> 7.0.0', group: [:development, :test]
+gem 'fuubar', '~> 2.5.0', group: [:test, :development]
+
+# =============================================================================
+# REQUIRE OPTIONS
+# =============================================================================
+
+# --- require: false ---
+gem 'bootsnap', '~> 1.10.0', require: false
+gem 'sprockets', '~> 4.0.0', require: false
+
+# --- require: 'different_name' ---
+gem 'aws-sdk-s3', '~> 1.111.0', require: 'aws-sdk'
+gem 'multi_json', '~> 1.15.0', require: 'multi_json'
+
+# =============================================================================
+# PLATFORM-SPECIFIC GEMS
+# =============================================================================
+
+platforms :ruby do
+  gem 'pg', '~> 1.3.0'
+  gem 'mysql2', '~> 0.5.3'
+  gem 'sqlite3', '~> 1.4.0'
+end
+
+platforms :jruby do
+  gem 'activerecord-jdbc-adapter', '~> 61.0'
+end
+
+# =============================================================================
+# NON-REGISTRY SOURCES (should be SKIPPED by extension)
+# =============================================================================
+
+# --- Git source ---
+gem 'my_private_gem', git: 'https://github.com/example/my_private_gem.git'
+gem 'custom_auth', git: 'https://github.com/example/custom_auth.git', tag: 'v1.0.0'
+
+# --- GitHub shorthand ---
+gem 'some_fork', github: 'user/some_fork'
+gem 'experimental_gem', github: 'user/experimental_gem', branch: 'main'
+gem 'feature_branch_gem', github: 'user/feature_branch_gem', branch: 'develop', ref: 'abc123'
+
+# --- Local path ---
+gem 'local_engine', path: '../engines/local_engine'
+gem 'shared_models', path: '../shared/shared_models'
+
+# --- gemspec (typically in .gemspec files) ---
+gemspec
+
+# =============================================================================
+# EDGE CASES: QUOTING STYLES
+# =============================================================================
+
+# --- Double-quoted strings ---
+gem "oj", "~> 3.13.0"
+gem "multi_xml", "~> 0.6.0"
+
+# --- Mixed quotes (single name, double version) ---
+gem 'hashie', "~> 5.0.0"
+gem 'dry-types', "~> 1.5.0"
+
+# =============================================================================
+# EDGE CASES: INLINE COMMENTS
+# =============================================================================
+
+gem 'sidekiq', '~> 6.4.0' # Background job processing
+gem 'resque', '~> 2.2.0' # Alternative background jobs
+gem 'delayed_job', '~> 4.1.0' # Yet another background job solution
+gem 'delayed_job_active_record', '~> 4.1.0' # ActiveRecord backend for delayed_job
+
+# =============================================================================
+# EDGE CASES: GEMS WITH HYPHENS
+# =============================================================================
+
+gem 'rest-client', '~> 2.1.0'
+gem 'http-cookie', '~> 1.0.0'
+gem 'net-smtp', '~> 0.3.0'
+gem 'net-pop', '~> 0.1.0'
+gem 'net-imap', '~> 0.2.0'
+gem 'ruby-progressbar', '~> 1.11.0'
+gem 'guard-rspec', '~> 4.7.0'
+gem 'active_model_serializers', '~> 0.10.0'
+
+# =============================================================================
+# EDGE CASES: GEMS WITH UNDERSCORES
+# =============================================================================
+
+gem 'factory_bot', '~> 6.2.0'
+gem 'http_parser.rb', '~> 0.8.0'
+gem 'method_source', '~> 1.0.0'
+gem 'table_print', '~> 1.5.0'
+
+# =============================================================================
+# REAL-WORLD: WEB FRAMEWORKS (intentionally old)
+# =============================================================================
+
+gem 'rack-test', '~> 1.1.0'
+gem 'roda', '~> 3.51.0'
+gem 'grape', '~> 1.6.0'
+gem 'padrino', '~> 0.15.0'
+
+# =============================================================================
+# REAL-WORLD: HTTP CLIENTS (intentionally old)
+# =============================================================================
+
+gem 'faraday', '~> 1.9.0'
+gem 'httparty', '~> 0.20.0'
+gem 'typhoeus', '~> 1.4.0'
+gem 'excon', '~> 0.89.0'
+gem 'http', '~> 5.0.0'
+
+# =============================================================================
+# REAL-WORLD: DATABASE & ORM (intentionally old)
+# =============================================================================
+
+gem 'sequel', '~> 5.52.0'
+gem 'activerecord', '~> 6.1.0'
+gem 'mongoid', '~> 7.3.0'
+gem 'redis-rails', '~> 5.0.0'
+gem 'dalli', '~> 3.1.0'
+
+# =============================================================================
+# REAL-WORLD: AUTHENTICATION & AUTHORIZATION (intentionally old)
+# =============================================================================
+
+gem 'devise', '~> 4.8.0'
+gem 'bcrypt', '~> 3.1.0'
+gem 'omniauth', '~> 2.0.0'
+gem 'omniauth-rails_csrf_protection', '~> 1.0.0'
+gem 'pundit', '~> 2.2.0'
+gem 'cancancan', '~> 3.3.0'
+gem 'jwt', '~> 2.3.0'
+gem 'doorkeeper', '~> 5.5.0'
+gem 'warden', '~> 1.2.0'
+
+# =============================================================================
+# REAL-WORLD: SERIALIZATION & PARSING (intentionally old)
+# =============================================================================
+
+gem 'jbuilder', '~> 2.11.0'
+gem 'rabl', '~> 0.16.0'
+gem 'jsonapi-serializer', '~> 2.1.0'
+gem 'csv', '~> 3.2.0'
+
+# =============================================================================
+# REAL-WORLD: TEMPLATE ENGINES (intentionally old)
+# =============================================================================
+
+gem 'haml', '~> 5.2.0'
+gem 'slim', '~> 4.1.0'
+gem 'liquid', '~> 5.1.0'
+gem 'tilt', '~> 2.0.0'
+gem 'kramdown', '~> 2.3.0'
+
+# =============================================================================
+# REAL-WORLD: CSS & ASSETS (intentionally old)
+# =============================================================================
+
+gem 'sass-rails', '~> 6.0.0'
+gem 'sassc', '~> 2.4.0'
+gem 'uglifier', '~> 4.2.0'
+gem 'terser', '~> 1.1.0'
+gem 'autoprefixer-rails', '~> 10.4.0'
+gem 'cssbundling-rails', '~> 1.0.0'
+gem 'jsbundling-rails', '~> 1.0.0'
+
+# =============================================================================
+# REAL-WORLD: FILE UPLOADS & STORAGE (intentionally old)
+# =============================================================================
+
+gem 'carrierwave', '~> 2.2.0'
+gem 'shrine', '~> 3.4.0'
+gem 'activestorage', '~> 6.1.0'
+gem 'mini_magick', '~> 4.11.0'
+gem 'image_processing', '~> 1.12.0'
+
+# =============================================================================
+# REAL-WORLD: PAGINATION & SEARCH (intentionally old)
+# =============================================================================
+
+gem 'kaminari', '~> 1.2.0'
+gem 'will_paginate', '~> 3.3.0'
+gem 'pagy', '~> 5.10.0'
+gem 'ransack', '~> 3.2.0'
+gem 'pg_search', '~> 2.3.0'
+
+# =============================================================================
+# REAL-WORLD: API & MIDDLEWARE (intentionally old)
+# =============================================================================
+
+gem 'graphql', '~> 2.0.0'
+gem 'versionist', '~> 2.0.0'
+gem 'rack-throttle', '~> 0.7.0'
+
+# =============================================================================
+# REAL-WORLD: MAILERS & NOTIFICATIONS (intentionally old)
+# =============================================================================
+
+gem 'mail', '~> 2.7.0'
+gem 'premailer-rails', '~> 1.11.0'
+gem 'actionmailer', '~> 6.1.0'
+
+# =============================================================================
+# REAL-WORLD: SCHEDULING & CRON (intentionally old)
+# =============================================================================
+
+gem 'whenever', '~> 1.0.0'
+gem 'rufus-scheduler', '~> 3.8.0'
+gem 'good_job', '~> 2.11.0'
+gem 'sidekiq-cron', '~> 1.2.0'
+
+# =============================================================================
+# REAL-WORLD: MONITORING & ERROR TRACKING (intentionally old)
+# =============================================================================
+
+gem 'sentry-ruby', '~> 5.1.0'
+gem 'sentry-rails', '~> 5.1.0'
+gem 'newrelic_rpm', '~> 8.4.0'
+gem 'scout_apm', '~> 5.1.0'
+
+# =============================================================================
+# REAL-WORLD: CONFIGURATION & ENV (intentionally old)
+# =============================================================================
+
+gem 'dotenv', '~> 2.7.0'
+gem 'figaro', '~> 1.2.0'
+gem 'config', '~> 4.0.0'
+
+# =============================================================================
+# REAL-WORLD: MISCELLANEOUS UTILITIES (intentionally old)
+# =============================================================================
+
+gem 'rubyzip', '~> 2.3.0'
+gem 'chartkick', '~> 4.1.0'
+gem 'groupdate', '~> 6.0.0'
+gem 'friendly_id', '~> 5.4.0'
+gem 'aasm', '~> 5.2.0'
+gem 'state_machines', '~> 0.5.0'
+gem 'paper_trail', '~> 12.2.0'
+gem 'paranoia', '~> 2.6.0'
+gem 'acts_as_list', '~> 1.0.0'
+gem 'draper', '~> 4.0.0'
+gem 'interactor', '~> 3.1.0'
