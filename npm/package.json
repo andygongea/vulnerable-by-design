@@ -45,16 +45,16 @@
     "react-native": "0.72.0-rc.1"
   },
   "devDependencies": {
-    "grunt": "0.4.5",
+    "grunt": "1.0.3",
     "bower": "1.8.2",
     "gulp": "3.9.1",
     "mocha": ">=2.2.5 <5.0.0",
     "eslint": "3.0.0",
-    "karma": "1.7.1",
+    "karma": "6.3.5",
     "webpack": "1.15.0",
     "jasmine": "2.0.1",
     "istanbul": "git://github.com/gotwarlost/istanbul.git#v0.4.5",
-    "jshint": "<=2.9.1",
+    "jshint": "2.9.3",
     "chai": ">4.0.0",
     "sinon": "12.0.0",
     "coveralls": "git+ssh://git@github.com/nickmerwin/node-coveralls.git#v3.0.0"
